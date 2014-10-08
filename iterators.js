@@ -34,7 +34,7 @@ var iterators = {
       var subsetarray=[];
       for (var i=0; i<array.length; i++) {
         if(callback(array[i])){
-          subsetarray.push(array[i]));  
+          subsetarray.push(array[i]);  
         }
       }
       return subsetarray;

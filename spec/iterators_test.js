@@ -71,20 +71,24 @@ describe('Iterators', function () {
 
   describe("#filter", function () {
     var myArr;
-
+    var isEven=function (num) {
+        return num % 2 ===0;
+      };
+      var isOdd=function (num) {
+        return num % 2 !==0;
+      };
     beforeEach(function () {
       myArr=[3,4,5];
     });
-    it ("should return the even numbers in the array", function() {
-      var isEven=Iterators.filter(myArr, function (array) {
-        return array % 2 ===0;
-      };
-    expect(isEven).to.eql([4]);
+
+    it ("should return the even numbers in the first case and odd numbers in the second case", function() {
+      expect(Iterators.filter([3,4,5], isEven)).to.eql([4]);
+      expect(Iterators.filter([3,4,5], isOdd)).to.eql([3,5]);
     });
-    it ("should return the odd numbers in the array", function () {
-      var isOdd=Iterators.filter(myArr, function (array) {
-        return array % 2 !==0;
-      };
-    expect(isOdd).to.eql([3,5]);
-});
+  }); // end of filter
+
+}); // end of iterator
+
+
+    
 
