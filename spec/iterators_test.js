@@ -21,4 +21,70 @@ describe('Iterators', function () {
       expect(Iterators.max(myArr)).to.equal(-Infinity);
     });
   });
+
+  describe('#min', function () {
+    var myArr;
+
+    beforeEach(function () {
+      myArr = [66,22,67, 34];
+    });
+
+    it('should return the minimum in an array', function () {
+      expect(Iterators.min(myArr)).to.equal(22);
+    });
+   it('should return Infinity for empty array', function () {
+      myArr = [];
+      expect(Iterators.min(myArr)).to.equal(Infinity);
+    });
+  });
+
+  describe('#each', function () {
+    var myArr;
+
+    beforeEach(function () {
+      myArr = [67, 68, 69];
+    });
+
+    it('should return the following when one is added to each number', function () {
+        var sum = function(array){
+          return  1+array
+        }
+        expect(Iterators.each(myArr, sum)).to.eql([68, 69, 70])
+    });
+  });
+
+  describe("#map", function () {
+    var myArr;
+
+    beforeEach(function () {
+      myArr = [1,2,3];
+    });
+      it ("should add 1 to each value of my original array", function() {
+       var newArr = Iterators.map(myArr, function(num) {
+          return num + 1;
+        });
+      expect(newArr).to.eql([2,3,4]);
+    });
+  });
+
+ 
+
+  describe("#filter", function () {
+    var myArr;
+
+    beforeEach(function () {
+      myArr=[3,4,5];
+    });
+    it ("should return the even numbers in the array", function() {
+      var isEven=Iterators.filter(myArr, function (array) {
+        return array % 2 ===0;
+      };
+    expect(isEven).to.eql([4]);
+    });
+    it ("should return the odd numbers in the array", function () {
+      var isOdd=Iterators.filter(myArr, function (array) {
+        return array % 2 !==0;
+      };
+    expect(isOdd).to.eql([3,5]);
 });
+
